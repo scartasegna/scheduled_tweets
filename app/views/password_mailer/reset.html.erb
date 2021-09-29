@@ -1,0 +1,3 @@
+Hi <%= @user.email %> mail de la cosa de reseteo </br>
+
+<%= link_to "Reset Password",  password_reset_edit_url(token: @token) %>

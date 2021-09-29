@@ -1,0 +1,7 @@
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Welcome to Schedule Twitts</h1>
+</div>
+
+<% if Current.user %>
+    <%= button_to "Connet Twitter", "/auth/twitter", metod: :post, class:"btn btn-primary" %>
+<% end %>
