@@ -11,14 +11,14 @@ class PasswordResetsController < ApplicationController
             PasswordMailer.with(user: @user).reset.deliver_now
         end
 
-        redirect_to root_path, notice: "Si esta registrado vamos a mandar un correo a tu mail"
+        redirect_to root_path, notice: "If the data is correct you will recive a mail. Please check the spam"
     end
 
     def edit
         @user = User.find_signed!(params[:token],purpose: "password_reset")
         
         rescue ActiveSupport::MessageVerifier::InvalidSignature 
-         redirect_to sign_in_path, alert: "Token expirado, vuelva a procesar"
+         redirect_to sign_in_path, alert: "Token expired, try again"
         
     end
 
@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
         @user = User.find_signed!(params[:token],purpose: "password_reset")
 
         if @user.update(password_params)
-            redirect_to sign_in_path, notice: " Pass actualizada "
+            redirect_to sign_in_path, notice: "Password updated"
         else
             render :edit
         end

@@ -8,9 +8,9 @@ class RegistrationsController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id]= @user.id
-            redirect_to root_path, noitice:"Cuenta creada correctamente"
+            redirect_to root_path, noitice:"Account succefully created"
         else
-            flash[:alert] = "Algo no esta bien"
+            flash[:alert] = "Correct the errors and try again"
             render :new     
         end
     end

@@ -9,16 +9,16 @@ class SessionsController < ApplicationController
 
         if user.present? && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to root_path, notice: " Logueado "
+            redirect_to root_path, notice: "You are logged in"
         else
-            flash[:alert] = " Usuario o Pass invalido" 
+            flash[:alert] = "Username or Password not valid" 
             render :new    
         end
     end
 
     def destroy
         session[:user_id] = nil
-        redirect_to root_path, notice:"Sesion cerrada"
+        redirect_to root_path, notice:"Session Closed"
     end
 
 end

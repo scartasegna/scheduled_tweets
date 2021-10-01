@@ -11,5 +11,5 @@
         <%= image_tag account.image, class:"rounded-circle"    %>
         <%= link_to "@#{account.username}", "https://twitter.com/#{account.username}", target: :_blank %>
     </div>
-    <%= button_to "Disconnect", account, method: :delete, data: {confirm: "Are you sure??" },class:"btn btn-secondary"%>
+    <%= button_to "Disconnect", account, method: :delete, data: {confirm: "Are you sure?" },class:"btn btn-secondary"%>
 <% end %>

@@ -13,7 +13,6 @@ class TweetsController < ApplicationController
     def create
         
         @tweet = Current.user.tweets.create(tweet_params)
-        Rails.logger.info(" Creando un twitt ")
         if @tweet.save
             
             redirect_to tweets_path, notice: "Tweet was scheduled succefully"
